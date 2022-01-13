@@ -1,2 +1,2 @@
 # jstools
-Repository for JavaScript tools and helpers
+JavaScript tools and helpers
