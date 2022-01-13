@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/toolbucket/jstools/issues"
   },
-  "homepage": "https://github.com/toolbucket/jstools#readme"
+  "homepage": "https://github.com/toolbucket/jstools#readme",
+  "devDependencies": {
+    "agadoo": "^2.0.0"
+  }
 }

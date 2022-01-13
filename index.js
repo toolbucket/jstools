@@ -1,5 +1,5 @@
-const hello = () => console.log('hello world');
+import {ArrayPipe} from './src/pipes.js';
 
 export {
-    hello,
+    ArrayPipe,
 };
