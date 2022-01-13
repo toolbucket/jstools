@@ -1,5 +1,5 @@
 {
-  "name": "jstools",
+  "name": "@toolbucket/jstools",
   "version": "1.0.0",
   "description": "JavaScript tools and helpers",
   "main": "index.js",
