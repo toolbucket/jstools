@@ -54,7 +54,7 @@ const ArrayPipe = (source = []) => ({
    */
   search(target, fn) {
     const search = target?.toLowerCase() ?? null;
-    if (!!search) this.filter(item => fn(item).includes(search));
+    if (!!search) this.filter(item => fn(item)?.toLowerCase()?.includes(search));
     return this;
   },
 

@@ -1,5 +1,1 @@
-import {ArrayPipe} from './pipes.js';
-
-export {
-    ArrayPipe,
-};
+export {ArrayPipe} from './pipes.js';
