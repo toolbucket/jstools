@@ -1,0 +1,1 @@
+export { ArrayPipe } from './pipes';

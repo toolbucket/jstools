@@ -2,31 +2,44 @@
   "name": "@toolbucket/jstools",
   "version": "0.0.3",
   "description": "JavaScript tools and helpers",
-  "main": "lib/index.js",
-  "scripts": {
-    "prepublish": "babel src --out-dir lib"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/toolbucket/jstools.git"
-  },
   "keywords": [
     "js",
     "tools",
     "utils",
     "helpers"
   ],
-  "author": "",
-  "license": "ISC",
+
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "sideEffects": false,
+
+  "scripts": {
+    "transpile": "tsc",
+    "prepublish": "babel src --out-dir lib"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toolbucket/jstools.git"
+  },
   "bugs": {
     "url": "https://github.com/toolbucket/jstools/issues"
   },
+
+
+  "license": "ISC",
+  "author": "user062199@gmail.com",
   "homepage": "https://github.com/toolbucket/jstools#readme",
+
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.16.8",
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.8",
-    "agadoo": "^2.0.0"
-  },
-  "sideEffects": false
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "agadoo": "^2.0.0",
+    "eslint": "^8.7.0",
+    "typescript": "^4.5.4"
+  }
 }
