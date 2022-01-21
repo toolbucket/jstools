@@ -12,7 +12,6 @@
   "module": "lib/browser/index.js",
   "sideEffects": false,
   "scripts": {
-    "transpile": "tsc",
     "prepare": "tsc -m commonjs --outDir ./lib/node & tsc -m esnext --outDir ./lib/browser"
   },
   "repository": {
