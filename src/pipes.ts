@@ -6,7 +6,7 @@ import { starship } from "./core";
  * Пайп для массива
  * @param {Array} source Исходный массив
  */
-class ArrayPipe {
+class ArrayPipeInterface {
   _source:  Array<any>;
   _filters: Array<Function>;
   _sorts:   Array<Function>;
@@ -19,7 +19,7 @@ class ArrayPipe {
   }
 
 
-  
+
   /**
    * Добавляет новый фильтр в очередь фильтров
    * @param {Function} fn Фильтр
@@ -82,6 +82,8 @@ class ArrayPipe {
   }
 }
 
+
+const ArrayPipe = (source: Array<any> = []) : ArrayPipeInterface => new ArrayPipeInterface(source);
 
 
 export {
