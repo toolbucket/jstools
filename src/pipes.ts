@@ -7,17 +7,19 @@ import { starship } from "./core";
  * @param {Array} source Исходный массив
  */
 class ArrayPipe {
-  _source:  Array<any>      = [];
-  _filters: Array<Function> = [];
-  _sorts:   Array<Function> = [];
-
+  _source:  Array<any>;
+  _filters: Array<Function>;
+  _sorts:   Array<Function>;
 
   constructor(source: Array<any> = [])
   {
-    this._source = source;
+    this._source  = source;
+    this._filters = [];
+    this._sorts   = [];
   }
 
 
+  
   /**
    * Добавляет новый фильтр в очередь фильтров
    * @param {Function} fn Фильтр
