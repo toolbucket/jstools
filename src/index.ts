@@ -1,1 +1,1 @@
-export { ArrayPipe } from './pipes';
+export { ArrayPipe } from './ArrayPipe';

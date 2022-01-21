@@ -7,9 +7,9 @@ import { starship } from "./core";
  * @param source Исходный массив
  */
 class ArrayPipeInterface {
-  _source:  Array<any>;
-  _filters: Array<Function>;
-  _sorts:   Array<Function>;
+  protected _source:  Array<any>;
+  protected _filters: Array<Function>;
+  protected _sorts:   Array<Function>;
 
   constructor(source: Array<any> = [])
   {
