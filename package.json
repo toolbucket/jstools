@@ -1,6 +1,6 @@
 {
   "name": "@toolbucket/jstools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "JavaScript tools and helpers",
   "keywords": [
     "js",
@@ -8,16 +8,13 @@
     "utils",
     "helpers"
   ],
-
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "sideEffects": false,
-
   "scripts": {
     "transpile": "tsc",
     "prepublish": "babel src --out-dir lib"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/toolbucket/jstools.git"
@@ -25,12 +22,9 @@
   "bugs": {
     "url": "https://github.com/toolbucket/jstools/issues"
   },
-
-
   "license": "ISC",
   "author": "user062199@gmail.com",
   "homepage": "https://github.com/toolbucket/jstools#readme",
-
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.16.8",
