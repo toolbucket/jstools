@@ -12,6 +12,11 @@ class ArrayPipe {
   _sorts:   Array<Function> = [];
 
 
+  constructor(source: Array<any> = [])
+  {
+    this._source = source;
+  }
+
 
   /**
    * Добавляет новый фильтр в очередь фильтров
