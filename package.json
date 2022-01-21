@@ -8,12 +8,12 @@
     "utils",
     "helpers"
   ],
-  "main": "lib/index.js",
-  "types": "lib/*.d.ts",
+  "main": "lib/node/index.js",
+  "module": "lib/browser/index.js",
   "sideEffects": false,
   "scripts": {
     "transpile": "tsc",
-    "prepublish": "babel src --out-dir lib"
+    "prepare": "tsc -m commonjs --outDir ./lib/node & tsc -m esnext --outDir ./lib/browser"
   },
   "repository": {
     "type": "git",
