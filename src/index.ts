@@ -1,4 +1,7 @@
-export { ArrayPipe } from './ArrayPipe';
+export { 
+  ArrayPipe
+} from './ArrayPipe';
+
 
 export {
   starship,
@@ -6,17 +9,17 @@ export {
 
   invert,
   default_invertor,
+} from './function';
 
-  between,
 
+export {
   roundNumberToPrecision,
   isNumbersEqualsWithPrecision,
   
   isPositiveInteger,
   isPositiveIntegerString,
   isLikePositiveInteger,
+} from './number';
 
-  getUniqueArray,
 
-  resetObject,
-} from './core';
+export * from './special';

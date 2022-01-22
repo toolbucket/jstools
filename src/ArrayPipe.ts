@@ -1,4 +1,4 @@
-import { starship } from "./core";
+import { starship } from "./function";
 
 
 
