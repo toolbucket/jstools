@@ -1,25 +1,7 @@
-export { 
-  ArrayPipe
-} from './ArrayPipe';
+export * from './ArrayPipe';
 
+export * from './function';
 
-export {
-  starship,
-  starship_key,
-
-  invert,
-  default_invertor,
-} from './function';
-
-
-export {
-  roundNumberToPrecision,
-  isNumbersEqualsWithPrecision,
-  
-  isPositiveInteger,
-  isPositiveIntegerString,
-  isLikePositiveInteger,
-} from './number';
-
+export * from './number';
 
 export * from './special';
