@@ -8,11 +8,10 @@
     "utils",
     "helpers"
   ],
-  "main": "lib/node/index.js",
-  "module": "lib/browser/index.js",
+  "main": "lib/browser/index.js",
   "sideEffects": false,
   "scripts": {
-    "prepare": "tsc -m commonjs --outDir ./lib/node & tsc -m esnext --outDir ./lib/browser"
+    "prepare": "tsc"
   },
   "repository": {
     "type": "git",
@@ -26,14 +25,10 @@
   "homepage": "https://github.com/toolbucket/jstools#readme",
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.16.8",
-    "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.16.8",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "agadoo": "^2.0.0",
     "eslint": "^8.7.0",
-    "typescript": "^4.5.4",
-    "uglify-js": "^3.14.5"
+    "typescript": "^4.5.4"
   }
 }
