@@ -3,7 +3,6 @@
       "target": "es6",
       "module": "es6",
       "outDir": "./lib/browser",
-      "declaration": true,
       "strict": true,
       "downlevelIteration": true,
     },
