@@ -77,7 +77,7 @@ class ArrayPipeInterface {
    * Добавляет новую сортировку в очередь сортировок
    * @param fn Сортировка
    */
-  public sort(fn: Function): this
+  sort(fn: Function): this
   {
     this._sorts.push(fn);
     return this;
@@ -105,6 +105,35 @@ class ArrayPipeInterface {
   sortByDesc(by: String|Function): this
   {
     return this.sortBy(by, true);
+  }
+
+  /**
+   * Добавляет те сортировки из массива `mapping`, проверка которых с параметром `target` совпадает
+   * @param target Цель для сравнения
+   * @param mapping Массив содержащий пары [проверка, сортировка]
+   * @param strict Строгая проверка
+   */
+  sortWhere(target: any, mapping: Array<Array<any|Function>>, strict = true) 
+  {
+    for (const [suspect, fn] of mapping) {
+      if (strict ? target === suspect : target == suspect) {
+        this.sort(fn);
+      }
+    }
+    return this;
+  }
+
+  /**
+   * Добавляет сортировку `fn` если условие правдиво и `else_fn` в противном случае
+   * @param when Условие
+   * @param fn Сортировка, которая применится при правдивом условии
+   * @param else_fn Сортировка, которая применится при ложном условии
+   */
+  sortWhen(when: any, fn: Function, else_fn: Function): this 
+  {
+    if (when) this.sort(fn);
+    else if (!!else_fn) this.sort(else_fn);
+    return this;
   }
 
 
