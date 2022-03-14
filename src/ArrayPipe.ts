@@ -136,6 +136,32 @@ class ArrayPipeInterface {
     return this;
   }
 
+  /**
+   * Добавляет сортировку `fn` если условие правдиво и `else_fn` в противном случае
+   * @param when Условие
+   * @param fn Сортировка, которая применится при правдивом условии
+   * @param else_fn Сортировка, которая применится при ложном условии
+   */
+  sortByWhen(when: any, fn: Function, else_fn: Function): this 
+  {
+    if (when) this.sortBy(fn);
+    else if (!!else_fn) this.sortBy(else_fn);
+    return this;
+  }
+
+  /**
+   * Добавляет сортировку `fn` если условие правдиво и `else_fn` в противном случае
+   * @param when Условие
+   * @param fn Сортировка, которая применится при правдивом условии
+   * @param else_fn Сортировка, которая применится при ложном условии
+   */
+  sortByDescWhen(when: any, fn: Function, else_fn: Function): this 
+  {
+    if (when) this.sortByDesc(fn);
+    else if (!!else_fn) this.sortByDesc(else_fn);
+    return this;
+  }
+
 
 
   /**
