@@ -2,6 +2,18 @@ import { starship } from "./function";
 
 
 
+const $when = <T>($self: T, $apply: Function) => (
+  $condition: boolean,
+  $if: Function,
+  $else?: Function
+) => {
+  if ($condition) $apply.call($self, $if);
+  else if ($else) $apply.call($self, $else);
+  return $self;
+};
+
+
+
 /**
  * Пайп для массива
  * @param source Исходный массив
@@ -36,7 +48,7 @@ class ArrayPipeInterface {
    * @param mapping Массив содержащий пары [проверка, фильтр]
    * @param strict Строгая проверка
    */
-  filterWhere(target: any, mapping: Array<Array<any|Function>>, strict = true): this 
+  filterWhere(target: any, mapping: Array<[any, Function]>, strict = true): this 
   {
     for (const [suspect, fn] of mapping) {
       if (strict ? target === suspect : target == suspect) {
@@ -52,11 +64,9 @@ class ArrayPipeInterface {
    * @param fn Фильтр, который применится при правдивом условии
    * @param else_fn Фильтр, который применится при ложном условии
    */
-  filterWhen(when: any, fn: Function, else_fn: Function): this 
+  filterWhen(when: boolean, fn: Function, else_fn: Function): this 
   {
-    if (when) this.filter(fn);
-    else if (!!else_fn) this.filter(else_fn);
-    return this;
+    return $when(this, this.filter)(when, fn, else_fn);
   }
 
   /**
@@ -108,57 +118,51 @@ class ArrayPipeInterface {
   }
 
   /**
+   * Добавляет сортировку `fn` если условие правдиво и `else_fn` в противном случае
+   * @param when Условие
+   * @param fn Сортировка, которая применится при правдивом условии
+   * @param else_fn Сортировка, которая применится при ложном условии
+   */
+  sortWhen(when: boolean, fn: Function, else_fn: Function): this
+  {
+    return $when(this, this.sort)(when, fn, else_fn);
+  }
+
+  /**
+   * Добавляет сортировку `fn` если условие правдиво и `else_fn` в противном случае
+   * @param when Условие
+   * @param fn Сортировка, которая применится при правдивом условии
+   * @param else_fn Сортировка, которая применится при ложном условии
+   */
+  sortByWhen(when: boolean, fn: Function, else_fn: Function): this 
+  {
+    return $when(this, this.sortBy)(when, fn, else_fn);
+  }
+
+  /**
+   * Добавляет сортировку `fn` если условие правдиво и `else_fn` в противном случае
+   * @param when Условие
+   * @param fn Сортировка, которая применится при правдивом условии
+   * @param else_fn Сортировка, которая применится при ложном условии
+   */
+  sortByDescWhen(when: boolean, fn: Function, else_fn: Function): this 
+  {
+    return $when(this, this.sortByDesc)(when, fn, else_fn);
+  }
+
+  /**
    * Добавляет те сортировки из массива `mapping`, проверка которых с параметром `target` совпадает
    * @param target Цель для сравнения
    * @param mapping Массив содержащий пары [проверка, сортировка]
    * @param strict Строгая проверка
    */
-  sortWhere(target: any, mapping: Array<Array<any|Function>>, strict = true) 
+  sortWhere(target: any, mapping: Array<[any, Function]>, strict = true) 
   {
     for (const [suspect, fn] of mapping) {
       if (strict ? target === suspect : target == suspect) {
         this.sort(fn);
       }
     }
-    return this;
-  }
-
-  /**
-   * Добавляет сортировку `fn` если условие правдиво и `else_fn` в противном случае
-   * @param when Условие
-   * @param fn Сортировка, которая применится при правдивом условии
-   * @param else_fn Сортировка, которая применится при ложном условии
-   */
-  sortWhen(when: any, fn: Function, else_fn: Function): this 
-  {
-    if (when) this.sort(fn);
-    else if (!!else_fn) this.sort(else_fn);
-    return this;
-  }
-
-  /**
-   * Добавляет сортировку `fn` если условие правдиво и `else_fn` в противном случае
-   * @param when Условие
-   * @param fn Сортировка, которая применится при правдивом условии
-   * @param else_fn Сортировка, которая применится при ложном условии
-   */
-  sortByWhen(when: any, fn: Function, else_fn: Function): this 
-  {
-    if (when) this.sortBy(fn);
-    else if (!!else_fn) this.sortBy(else_fn);
-    return this;
-  }
-
-  /**
-   * Добавляет сортировку `fn` если условие правдиво и `else_fn` в противном случае
-   * @param when Условие
-   * @param fn Сортировка, которая применится при правдивом условии
-   * @param else_fn Сортировка, которая применится при ложном условии
-   */
-  sortByDescWhen(when: any, fn: Function, else_fn: Function): this 
-  {
-    if (when) this.sortByDesc(fn);
-    else if (!!else_fn) this.sortByDesc(else_fn);
     return this;
   }
 

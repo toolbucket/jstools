@@ -11,6 +11,7 @@
   "main": "lib/browser/index.js",
   "sideEffects": false,
   "scripts": {
+    "test": "mocha",
     "prepare": "tsc"
   },
   "repository": {
@@ -23,12 +24,12 @@
   "license": "ISC",
   "author": "user062199@gmail.com",
   "homepage": "https://github.com/toolbucket/jstools#readme",
-  "dependencies": {},
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "agadoo": "^2.0.0",
     "eslint": "^8.7.0",
+    "mocha": "^9.2.2",
     "typescript": "^4.5.4"
   }
 }
