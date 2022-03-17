@@ -8,8 +8,8 @@ import { replaceMany } from './string';
  * simpleDateTimeFormat(new Date, 'D.M.Y') 
  * simpleDateTimeFormat(new Date, 'на D день')
  */
-const simpleDateTimeFormat = (value: string|number|Date, format: string): string => {
-  const date = value instanceof Date ? value : new Date(value);
+const simpleDateTimeFormat = (format: string, value?: string|number|Date ): string => {
+  const date = value instanceof Date ? value : (value ? new Date(value) : new Date);
 
   const d = date.getDate();
   const m = date.getMonth() + 1;
